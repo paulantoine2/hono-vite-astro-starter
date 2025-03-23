@@ -1,0 +1,10 @@
+{
+  "name": "hono-vite-astro-boilerplate",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "prettier": "3.5.3"
+  }
+}
