@@ -9,15 +9,17 @@ export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
   }),
+  trustedOrigins: ["http://localhost:5173"],
   secret: process.env.BETTER_AUTH_SECRET!,
   plugins: [
-    organization(),
+    // https://github.com/better-auth/better-auth/issues/1861
+    organization() as ReturnType<typeof organization>,
     apiKey(),
-    stripe({
-      stripeClient,
-      stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
-      createCustomerOnSignUp: true,
-    }),
+    // stripe({
+    //   stripeClient,
+    //   stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
+    //   createCustomerOnSignUp: true,
+    // }),
   ],
   emailAndPassword: {
     enabled: true,

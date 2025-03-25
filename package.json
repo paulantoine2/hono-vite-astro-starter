@@ -4,7 +4,15 @@
     "apps/*",
     "packages/*"
   ],
+  "scripts": {
+    "dev": "turbo dev",
+    "studio": "cd packages/db && bun studio"
+  },
   "devDependencies": {
     "prettier": "3.5.3"
-  }
+  },
+  "dependencies": {
+    "turbo": "^2.4.4"
+  },
+  "packageManager": "bun@1.2.5"
 }

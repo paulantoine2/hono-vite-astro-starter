@@ -4,6 +4,7 @@ import * as schema from "@boilerplate/db";
 const db = drizzle({
   connection: process.env.DATABASE_URL!,
   schema,
+  logger: true,
 });
 
 export default db;

@@ -1,16 +1,30 @@
 {
-  "name": "api",
+  "name": "@starter/api",
+  "version": "0.0.0",
+  "exports": {
+    "./hc": {
+      "import": {
+        "default": "./dist/hc.js",
+        "types": "./dist/hc.d.ts"
+      }
+    }
+  },
   "scripts": {
-    "dev": "bun run --hot src/index.ts"
+    "dev:api": "bun run --hot src/index.ts",
+    "dev": "pnpm --filter @starter/api --parallel \"/^dev:.*/\"",
+    "build:hc": "tsc --p tsconfig.build.json",
+    "dev:hc": "tsc --p tsconfig.build.json"
   },
   "dependencies": {
     "@better-auth/stripe": "^1.2.4",
-    "better-auth": "^1.2.4",
     "@boilerplate/db": "workspace:packages:*",
+    "better-auth": "^1.2.4",
     "hono": "^4.7.5",
-    "stripe": "^17.7.0"
+    "stripe": "^17.7.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "typescript": "^5.8.2"
   }
 }
